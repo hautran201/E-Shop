@@ -1,12 +1,39 @@
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+
 import styles from '../styles/style';
-import { Link } from 'react-router-dom';
+import httpRequest from '../utils/httpRequest';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [visible, setVisible] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await httpRequest.post(
+                '/auth/login',
+                { email, password },
+                {
+                    header: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                },
+            );
+            if (!res.data) {
+            }
+            navigate('/');
+            toast.success('Login Success');
+        } catch (err) {
+            toast.error(err.response.data.message);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -15,7 +42,10 @@ function Login() {
                 </h2>
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6">
+                        <form
+                            className="space-y-6"
+                            method="POST"
+                            onSubmit={handleSubmit}>
                             <div>
                                 <label
                                     htmlFor="email"

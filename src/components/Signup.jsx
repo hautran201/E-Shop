@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { RxAvatar } from 'react-icons/rx';
+import { toast } from 'react-toastify';
+
 import styles from '../styles/style';
 import { Link } from 'react-router-dom';
+import httpRequest from '../utils/httpRequest';
 
 function Signup() {
     const [fullname, setFullname] = useState('');
@@ -11,8 +14,26 @@ function Signup() {
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
 
-    const handleSubmit = () => {
-        console.log('Submit');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('avatar', avatar);
+        formData.append('name', fullname);
+        formData.append('email', email);
+        formData.append('password', password);
+
+        await httpRequest
+            .post('/auth/register', formData)
+            .then((res) => {
+                toast.success(res.data.message);
+                setFullname('');
+                setEmail('');
+                setPassword('');
+                setAvatar();
+            })
+            .catch((err) => {
+                toast.error(err.response.data.message);
+            });
     };
 
     const handleInputFileChange = (e) => {
@@ -28,7 +49,10 @@ function Signup() {
                 </h2>
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6">
+                        <form
+                            className="space-y-6"
+                            method="POST"
+                            onSubmit={handleSubmit}>
                             <div>
                                 <label
                                     htmlFor="fullname"
@@ -147,7 +171,7 @@ function Signup() {
                             <div className={`${styles.noramlFlex} w-full`}>
                                 <h4> Already have an account?</h4>
                                 <Link
-                                    to="/login"
+                                    to="/sign-in"
                                     className="text-blue-600 pl-2">
                                     Sign In
                                 </Link>
