@@ -3,8 +3,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
-import styles from '../styles/style';
-import httpRequest from '../utils/httpRequest';
+import styles from '../../styles/style';
+import httpRequest from '../../utils/httpRequest';
 
 function Login() {
     const [email, setEmail] = useState('');

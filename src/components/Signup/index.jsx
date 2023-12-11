@@ -3,9 +3,9 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { RxAvatar } from 'react-icons/rx';
 import { toast } from 'react-toastify';
 
-import styles from '../styles/style';
+import styles from '../../styles/style';
 import { Link } from 'react-router-dom';
-import httpRequest from '../utils/httpRequest';
+import httpRequest from '../../utils/httpRequest';
 
 function Signup() {
     const [fullname, setFullname] = useState('');

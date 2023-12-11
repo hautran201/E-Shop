@@ -10,10 +10,12 @@ import { BiMenuAltLeft } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { RxCross1 } from 'react-icons/rx';
 
+import Dropdown from './DropDown';
+import Navbar from './Navbar';
 import styles from '../../styles/style';
-import { productData } from '../../static/data';
+import { productData, categoriesData } from '../../static/data';
 
-function Header() {
+function Header({ activeHeading }) {
     const isAuthenticated = false;
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -127,17 +129,17 @@ function Header() {
                                 className="absolute right-2 top-4 cursor-pointer"
                                 onClick={() => setDropDown(!dropDown)}
                             />
-                            {/* {dropDown ? (
-                                <DropDown
+                            {dropDown ? (
+                                <Dropdown
                                     categoriesData={categoriesData}
                                     setDropDown={setDropDown}
                                 />
-                            ) : null} */}
+                            ) : null}
                         </div>
                     </div>
                     {/* navitems */}
                     <div className={`${styles.noramlFlex}`}>
-                        {/* <Navbar active={activeHeading} /> */}
+                        <Navbar active={activeHeading} />
                     </div>
 
                     <div className="flex">
@@ -150,7 +152,7 @@ function Header() {
                                     color="rgb(255 255 255 / 83%)"
                                 />
                                 <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                                    {/* {wishlist && wishlist.length} */}
+                                    {/* {wishlist && wishlist.length} */}1
                                 </span>
                             </div>
                         </div>
@@ -164,7 +166,7 @@ function Header() {
                                     color="rgb(255 255 255 / 83%)"
                                 />
                                 <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                                    {/* {cart && cart.length} */}
+                                    {/* {cart && cart.length} */}2
                                 </span>
                             </div>
                         </div>
