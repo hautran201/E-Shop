@@ -210,13 +210,14 @@ export const categoriesData = [
         title: 'Gifts',
         subTitle: '',
         image_Url:
-            'https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg',
+            'https://atlas-content-cdn.pixelsquid.com/stock-images/gift-box-blue-vnZyAO0-600.jpg',
     },
     {
         id: 7,
         title: 'Pet Care',
         subTitle: '',
-        image_Url: 'https://cdn.openpr.com/T/c/Tc15444071_g.jpg',
+        image_Url:
+            'https://www.chamsocpet.com/wp-content/uploads/2016/07/logo-fb-petcare-v2.png',
     },
     {
         id: 8,
@@ -297,14 +298,14 @@ export const productData = [
             },
             ratings: 4.2,
         },
+        price: 1024,
         discount_price: 1099,
         rating: 5,
         total_sell: 80,
         stock: 10,
-        category: 'Mobile & Tablets',
     },
     {
-        id: 1,
+        id: 3,
         category: 'Computers and Laptop',
         name: 'MacBook pro M2 chipset 256gb ssd 8gb ram space gray color with apple 1 year warranty',
         description:
@@ -332,7 +333,6 @@ export const productData = [
         rating: 4,
         total_sell: 75,
         stock: 10,
-        category: 'Computers & Laptop',
     },
     {
         id: 4,
@@ -394,10 +394,9 @@ export const productData = [
         rating: 5,
         total_sell: 49,
         stock: 10,
-        category: 'Shoes',
     },
     {
-        id: 1,
+        id: 6,
         name: 'Gaming Headphone Asus with mutiple color and free delivery',
         description:
             "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
