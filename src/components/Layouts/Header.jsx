@@ -99,7 +99,7 @@ function Header({ activeHeading }) {
                         <Link
                             to={`${isSeller ? '/dashboard' : '/shop-create'}`}>
                             <h1 className="text-[#fff] flex items-center">
-                                {isSeller ? 'Go Dashboard' : 'Become Seller'}{' '}
+                                {isSeller ? 'Go Dashboard' : 'DiTech Seller'}{' '}
                                 <IoIosArrowForward className="ml-1" />
                             </h1>
                         </Link>
@@ -183,7 +183,7 @@ function Header({ activeHeading }) {
                                         /> */}
                                     </Link>
                                 ) : (
-                                    <Link to="/login">
+                                    <Link to="/sign-in">
                                         <CgProfile
                                             size={30}
                                             color="rgb(255 255 255 / 83%)"
